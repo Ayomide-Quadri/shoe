@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+    margin: 1.5em;
+    font-family: 'Poppins',sans-serif;
+}
+
+a{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.hero-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/Shoe 1.png');
+    background-size: cover;
+    background-position-x:20% ;
+    background-position-y:20% ;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    animation: introload 2s forwards;
+}
+
+.logo{
+    color: white;
+    font-weight: bold;
+}
+
+nav{
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: white;
+    height: 100vh;
+    width: 50%;
+    z-index: 999;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
+
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin-top:8em;
+
+        a{
+            color: black;
+            padding: .75em 2em;
+            display: block;
+            width: 100%;
+
+            &:hover{
+                background: rgba(235, 235, 235);
+            }
+        }
+    }
+    .close{
+        float: right;
+        margin: 2em;
+        width: 1em;
+    }
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+        width: 2.3em;
+        margin-top: -.6em;
+        cursor: pointer;
+        
+    }
+}
+
+h1{
+    font-size: 3rem;
+    margin-top: 2em;
+    line-height: 3.3rem;
+}
+
+.subhead{
+    font-size: 1.4rem;
+}
+
+section.hero{
+    color: white;
+    height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
+
+    .down-arrow {
+        stroke: white;
+        position:absolute;
+        bottom: 2em;
+        width:  5.5em;
+        animation: moveArrow 1s alternate-reverse infinite;
+        
+        path{
+            fill: white;
+        }
+    }
+}
+
+.more-info{
+
+    img{
+        width: 100%;
+        object-fit: cover;
+        height: 11em;
+    }
+
+    .title{
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+    .desc{
+        line-height: 1.5rem;
+    }
+}
+
+.open-nav{
+    transform: translateX(0%);
+}
+@media only screen and (min-width:680px) {
+
+    body{
+        margin: 1.5em 5em;
+        font-family: 'Poppins',sans-serif;
+    }
+    
+}
+
+@media only screen and (min-width: 920px){
+
+    .menu{
+        display: none;
+    }
+
+    nav {
+        transform: translateX(0);
+        position: unset;
+        display: block;
+        width: auto;
+        height: auto;
+        background: none;
+
+        svg.close{
+            display: none;
+        }
+
+        ul{
+            display: flex;
+            margin: 0;
+
+            a{
+                color: white;
+                padding: .5em 1.5em;
+                font-size: .9rem;
+
+                &:hover {
+                    background: none;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .hero-img{
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 42em;
+     }
+    
+     .logo{
+        color: black;
+    
+        span {
+            color: red;
+        }
+    }
+
+    section.hero{
+        color: black;
+        height: auto;
+        width: 40%;
+        margin-bottom: 8em;
+
+        svg.down-arrow {
+            stroke: black;
+            position: unset;
+
+            path{
+                fill: black;
+            }
+        }
+    }
+
+    .feature {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        margin-bottom: 8em;
+
+        img {
+            width: 25em;
+        }
+
+        .content{
+            text-align: right;
+            width: 25em;
+        }
+    }
+
+    .feature.left{
+        grid-template-areas: 
+            "left right";
+
+        img {
+            grid-area: left;
+        }
+
+        .content{
+            text-align: left ;
+            width: 25em;
+            justify-self: left;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .wrapper{
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .feature{
+        gap: 0;
+    }
+}
+
+@keyframes introload {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes moveArrow {
+    from{
+        transform: translateY(-30px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveDown {
+    from{
+        transform: translateY(-100px);
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+    </style>
+
+    <title>My new lp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="hero-img"></div>
+    <div class="wrapper">
+        <header>
+            <a href="#" class="logo">Shoe<span>Brand</span></a>
+
+            <nav class="open-nav">
+
+                <svg class="close"  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+               <path d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M327.115,365.904
+                 L256,294.789l-71.115,71.115l-38.789-38.789L217.211,256l-71.115-71.115l38.789-38.789L256,217.211l71.115-71.115l38.789,38.789
+                 L294.789,256l71.115,71.115L327.115,365.904z"/>
+           </svg>
+
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sneakers</a></li>
+                    <li><a href="#">Players</a></li>
+                </ul>
+
+                           
+            </nav>
+
+            <svg class="menu" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M16 18v2H5v-2h11zm5-7v2H3v-2h18zm-2-7v2H8V4h11z"/>
+            </svg> 
+            </header>
+
+            <section class="hero">
+                <h1>Regain your confidence on the court</h1>
+
+                <p class="subhead">A shoe built with purpose and to take your game to the next level</p>
+
+                <svg class="down-arrow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+	                viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                    <path id="XMLID_10_" d="M154.394,325.606C157.322,328.536,161.161,330,165,330s7.678-1.464,10.607-4.394l37.5-37.5
+                    c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.356-5.858-21.213,0L180,278.787V15c0-8.284-6.716-15-15-15
+                    c-8.284,0-15,6.716-15,15v263.787l-11.893-11.894c-5.858-5.858-15.356-5.858-21.213,0c-5.858,5.858-5.858,15.355,0,21.213
+                    L154.394,325.606z"/>
+                
+                </svg> 
+
+            </section>
+
+            <section class="more-info">
+                <div class="feature">
+                    <div class="content">
+                        <p class="title">Lightweight</p>
+                        <p class="desc">Upper mesh material provide ventilation and reduction in the weight of the shoes.</p>
+                    </div>
+                    <img src="images/Shoe 2.png" alt="Another shoe">
+                </div>
+                <div class="feature left">
+                    <div class="content">
+                        <p class="title">Lightweight</p>
+                        <p class="desc">Upper mesh material provide ventilation and reduction in the weight of the shoes.</p>
+                    </div>
+                    <img src="images/Shoe 3.png" alt="Another shoe">
+                </div>
+                <div class="feature">
+                    <div class="content">
+                        <p class="title">Lightweight</p>
+                        <p class="desc">Upper mesh material provide ventilation and reduction in the weight of the shoes.</p>
+                    </div>
+                    <img src="images/Shoe 4.png" alt="Another shoe">
+                </div>
+            </section>
+        </div>
+
+        <script>
+            const menu = document.querySelector('.menu')
+            const close = document.querySelector('.close')
+            const nav = document.querySelector('nav')
+
+            menu.addEventListener('click', ()=>{
+                nav.classList.add('open-nav')
+            })
+
+            close.addEventListener('click', ()=>{
+                nav.classList.remove('open-nav')
+            })
+        </script>
+     </body>
+</html>
